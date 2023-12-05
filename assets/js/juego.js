@@ -1,4 +1,4 @@
-(() => {
+const miModulo = (() => {
   'use strict'
 
 
@@ -30,7 +30,7 @@
 
 
     puntosHTML.forEach(elem => elem.innerText = 0);
-    divCartasJugadores.forEach(elem => elem.innerHtml = '');
+    divCartasJugadores.forEach(elem => elem.innerText = '');
     btnPedir.disabled = false;
     btnDetener.disabled = false;
 
@@ -141,6 +141,7 @@
   });
 
   btnDetener.addEventListener('click', () => {
+    const puntosJugador = puntosJugadores[0];
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     turnoComputadora(puntosJugador);
@@ -151,4 +152,7 @@
     inicializarJuego();
 
   });
+  return {
+    nuevoJuego: inicializarJuego
+  };
 })();
